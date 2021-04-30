@@ -1,5 +1,6 @@
 // Сюда импортируем весь sсss
 
+@import 'colors.scss';
 @import 'reset.scss';
 @import 'container.scss';
 @import 'preloader.scss';
@@ -12,7 +13,8 @@
 @import 'gallery.scss';
 @import 'modal.scss';
 @import 'footer.scss';
-@import 'footer-modal.scss';
+@import 'registration.scss';
 @import 'toTop.scss';
+@import 'trailer-modal.scss';
 @import '../../node_modules/@glidejs/glide/src/assets/sass/glide.theme';
 @import '../../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss';
