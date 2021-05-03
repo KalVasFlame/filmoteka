@@ -4,36 +4,45 @@ import galleryHbs from '../templates/gallery-list.hbs';
 
 refs.nextBtn.addEventListener('click', onNextBtnClick);
 refs.prevBtn.addEventListener('click', onPrevBtnClick);
+refs.currentBtn.addEventListener('click', () => {
+  window.scrollTo({
+  top: 0,
+  left: 0,
+  behavior: 'smooth'
+});
+})
+showCurrentPage();
 
 function onNextBtnClick() {
   if (apiService.galleryStatus === "ByTrend") {
-    return onTrendNextBtnClick()
+    onTrendNextBtnClick()
   }
   if (apiService.galleryStatus === "BySearchQuery") {
-    return onSearchNextBtnClick()
+    onSearchNextBtnClick()
   }
   if (apiService.galleryStatus === "ByPopular") {
-    return onPopularNextBtnClick()
+    onPopularNextBtnClick()
   }
   if (apiService.galleryStatus === "ByTopRated") {
-    return onTopRatedNextBtnClick()
+    onTopRatedNextBtnClick()
   }
-  
+  showCurrentPage();
 }
 
 function onPrevBtnClick() {
   if (apiService.galleryStatus === "ByTrend") {
-    return onTrendPrevBtnClick()
+     onTrendPrevBtnClick()
   }
   if (apiService.galleryStatus === "BySearchQuery") {
-    return onSearchPrevBtnClick()
+     onSearchPrevBtnClick()
   }
   if (apiService.galleryStatus === "ByPopular") {
-    return onPopularPrevBtnClick()
+     onPopularPrevBtnClick()
   }
   if (apiService.galleryStatus === "ByTopRated") {
-    return onTopRatedPrevBtnClick()
+     onTopRatedPrevBtnClick()
   }
+  showCurrentPage();
 }
 
 function onTrendPrevBtnClick() {
@@ -131,3 +140,10 @@ function onTopRatedNextBtnClick() {
   behavior: 'smooth'
 });
 }
+
+function showCurrentPage() {
+  refs.nextBtn.firstElementChild.textContent = " " + (apiService.page + 1);
+  refs.prevBtn.firstElementChild.textContent = " " + (apiService.page - 1);
+  refs.currentBtn.firstElementChild.textContent = " " + apiService.page;
+}
+export { showCurrentPage };
