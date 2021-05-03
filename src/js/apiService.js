@@ -71,23 +71,23 @@ export default {
   },
 
   titleValidation(results) {
-   return results.forEach(item => {
-        if (!item.original_title) {
-          return item.original_title = item.name
-        }
-        if (!item.name) {
-          return item.original_title = item.title
-        }
-        if (!item.title) {
-          return item.original_title = 'Sorry, No Info'
+    return results.forEach(item => {
+      if (!item.original_title) {
+        return item.original_title = item.name
       }
-   })
-        
+      if (!item.name) {
+        return item.original_title = item.title
+      }
+      if (!item.title) {
+        return item.original_title = 'Sorry, No Info'
+      }
+    })
+
   },
   releaseDateValidation(results) {
     return results.forEach(item => {
       if (!item.release_date) {
-      return item.release_date = '2077'        
+        return item.release_date = '2077'
       }
       item.release_date = item.release_date.slice(0, 4)
     })
@@ -103,21 +103,21 @@ export default {
   },
 
   genresValidation(results, genresData) {
-     results.forEach(item => {
+    results.forEach(item => {
       genresData.forEach(genre => {
-        if (item.genre_ids.includes(genre.id) ) {
+        if (item.genre_ids.includes(genre.id)) {
           item.genre_ids.push(genre.name)
         }
       })
-       item.genre_ids = item.genre_ids.filter(x => isNaN(x)).join(', ');
-      
-     })
+      item.genre_ids = item.genre_ids.filter(x => isNaN(x)).join(', ');
+
+    })
     return results
-    },
-  
-  getTrailerById (id) {
+  },
+
+  getTrailerById(id) {
     const url = `${MAIN_URL}movie/${id}/videos?api_key=${KEY}&language=en-US`;
-   return fetch(url).then(response => response.json());
+    return fetch(url).then(response => response.json());
   },
 
   incrementPage() {

@@ -2,6 +2,7 @@ import refs from './refs';
 import apiService from './apiService';
 import galleryHbs from '../templates/gallery-list.hbs';
 import { toggleCurrentLink, changeGalleryToMyHome } from './library-helpers';
+import { showCurrentPage } from './galeery-pagination';
 
 const onLogoClick = e => {
   refs.prevBtn.classList.remove('js-top-rated-prev')
@@ -14,6 +15,7 @@ const onLogoClick = e => {
   changeGalleryToMyHome(e);
   e.preventDefault();
   apiService.page = 1;
+  showCurrentPage();
   apiService.getByTrend().then((results) => {
     refs.gallery.innerHTML = galleryHbs(results);
   })

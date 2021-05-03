@@ -76,12 +76,18 @@
       </div>
 
       <form action="" class="search-bar js-form search">
-        <input autocomplete="off" type="search" name="search" pattern=".*\S.*" required>
+        <input
+          autocomplete="off"
+          type="search"
+          name="search"
+          pattern=".*\S.*"
+          required
+        />
         <button class="search-btn" type="submit">
           <span>Search</span>
         </button>
       </form>
-<!-- 
+      <!-- 
       <form class="search js-form" id="search">
        
         <input
@@ -176,8 +182,15 @@
 
       <ul class="articles container js-fetch-list"></ul>
       <div class="button-filter container" style="margin-bottom: 10px">
-        <button class="button js-btn-p js-by-trend-prev">Previous page</button>
-        <button class="button js-btn-n js-by-trend-next">Next page</button>
+        <button class="button js-btn-p js-by-trend-prev">
+          Previous page <span></span>
+        </button>
+        <button class="button js-btn-c js-by-trend-current">
+          Current page <span></span>
+        </button>
+        <button class="button js-btn-n js-by-trend-next">
+          Next page <span></span>
+        </button>
       </div>
 
       <div class="backdrop is-hidden">
