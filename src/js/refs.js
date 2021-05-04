@@ -7,6 +7,7 @@ const refs = {
   headerSearchForm: document.querySelector('.js-form'),
   prevBtn: document.querySelector('.js-btn-p'),
   nextBtn: document.querySelector('.js-btn-n'),
+  currentBtn: document.querySelector('.js-btn-c'),
   btnPopular: document.querySelector('[data-action="popular"]'),
   btnTopRated: document.querySelector('[data-action="top rated"]'),
   btnModalClose: document.querySelector('.modal-close'),
